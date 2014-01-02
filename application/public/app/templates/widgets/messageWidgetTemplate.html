@@ -1,0 +1,40 @@
+<script id="messageWidgetTemplate" type="text/template">
+	
+    <div id="<%= (customId !== undefined && customId !== null) ? customId : 'messageWidget_' + cid  %>" class="hidden-elem display-message <%= customClass %>">
+		<% if (type === WebApp.constants.MESSAGE_ERROR) { %>
+			<div class="alert alert-error">
+				<div class="ui-widget">
+					<div class="ui-state-error ui-corner-all">					
+						<p>
+							<span class="icon-message ui-icon ui-icon-alert"></span>
+							<span class="text-message text-medium">&nbsp;</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		<% } else if (type === WebApp.constants.MESSAGE_SUCCESS) { %>
+			<div class="alert alert-success">
+		        <div class="ui-widget">
+			        <div class="ui-state-success ui-corner-all">					
+				        <p>
+					        <span class="icon-message ui-icon ui-icon-check"></span>
+					        <span class="text-message text-medium">&nbsp;</span>
+				        </p>
+			        </div>
+		        </div>
+	        </div>
+		<% } else if (type === WebApp.constants.MESSAGE_ALERT) { %>
+			<div class="alert alert-highlight">
+		        <div class="ui-widget">
+			        <div class="ui-state-highlight ui-corner-all">					
+				        <p>
+					        <span class="icon-message ui-icon ui-icon-info"></span>
+					        <span class="text-message text-medium">&nbsp;</span>
+				        </p>
+			        </div>
+		        </div>
+	        </div>
+		<% } %>
+	</div>
+	
+</script>

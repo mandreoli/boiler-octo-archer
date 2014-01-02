@@ -1,0 +1,20 @@
+<script id="modalDialogTemplate" type="text/template">
+    <div id="modalDialogContent">
+        <div class="dialog-icon-container">
+        <% if (mode === WebApp.constants.DIALOG_WARNING) { %>
+            <span class="dialog-icon-image dialog-icon-warning"></span>
+        <% } else if (mode === WebApp.constants.DIALOG_QUESTION) { %>
+            <span class="dialog-icon-image dialog-icon-question"></span>
+        <% } else if (mode === WebApp.constants.DIALOG_SUCCESS) { %>
+            <span class="dialog-icon-image dialog-icon-success"></span>
+        <% } else if (mode === WebApp.constants.DIALOG_INFO) { %>
+            <span class="dialog-icon-image dialog-icon-info"></span>
+        <% } else if (mode === WebApp.constants.DIALOG_ERROR) { %>
+            <span class="dialog-icon-image dialog-icon-error"></span>
+        <% } %>
+        </div>
+        <div class="text-dialog text-medium">
+            <%= message %>
+        </div>
+    </div>
+</script>

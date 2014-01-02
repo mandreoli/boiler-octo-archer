@@ -1,0 +1,10 @@
+<script id="loaderWidgetTemplate" type="text/template">
+	
+    <div id="<%= (customId !== undefined && customId !== null) ? customId : 'loaderWidget_' + cid  %>" class="hidden-elem text-center <%= customClass %>">
+		<div class="text-container">
+			<p class="loader-text text-small"><%= (customText) ? customText : 'Loading...'.lang(WebApp.language) %></p>
+			<span class="spinner-js"></span>
+		</div>
+	</div>
+	
+</script>

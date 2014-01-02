@@ -1,0 +1,32 @@
+<script id="pagetorWidgetTemplate" type="text/template">
+    <div class="paginator-infos left">
+        <% if (total > 0) { %>
+            <p></p>
+        <% } %>
+    </div>
+    <div class="paginator-content" id="paginatorsButtons_<%= input_id %>">
+        <% if (pages > 1) { %>
+			<a href="javascript:void(0);" title="<%= 'First page'.lang(WebApp.language) %>" class="first-page paginator-button <%= (page > 1 && pages > 0) ? 'enabled-btn' : 'disabled-btn' %>">
+				<span class="hidden-elem">1</span>
+			</a>
+			<a href="javascript:void(0);" title="<%= 'Prev page'.lang(WebApp.language) %>" class="prev-page paginator-button <%= (page > 1 && pages > 0) ? 'enabled-btn' : 'disabled-btn' %>">
+				<span class="hidden-elem"><%= parseInt(page, 10) - 1 %></span>
+			</a>
+			<div class="paginator-text">
+				<input id="textPage_<%= input_id %>" type="text" value="<%= page %>" />
+				<p><%= 'of'.lang(WebApp.language) %> <%= pages %></p>
+			</div>
+			<a href="javascript:void(0);" title="<%= 'Next page'.lang(WebApp.language) %>" class="next-page paginator-button <%= (page < pages && pages > 0) ? 'enabled-btn' : 'disabled-btn' %>">
+				<span class="hidden-elem"><%= parseInt(page, 10) + 1 %></span>
+			</a>
+			<a href="javascript:void(0);" title="<%= 'Last page'.lang(WebApp.language) %>" class="last-page paginator-button <%= (page < pages && pages > 0) ? 'enabled-btn' : 'disabled-btn' %>">
+				<span class="hidden-elem"><%= pages %></span>
+			</a>
+		<% } %>	
+    </div>
+    <div class="paginator-infos right">
+        <% if (total > 0) { %>
+            <p><%= 'Rows'.lang(WebApp.language) %> <%= begin %>-<%= end %> di <%= total %></p>
+        <% } %>
+    </div>
+</script>
