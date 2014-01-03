@@ -19,8 +19,8 @@ WebApp = {
 };
 
 /* IMPORTANT: installation path (change also the base tag in the index.html/index.release pages) */
-//WebApp.domain = '/boilerplate/application';
-WebApp.domain = '/boilerplate/release';
+WebApp.domain = '/boiler-octo-archer/application';
+//WebApp.domain = '/boiler-octo-archer/release';
 
 /* object: 0, log: 1, debug: 2, info: 3, warn: 4, error: 5 */
 WebApp.logEnabled = false;
