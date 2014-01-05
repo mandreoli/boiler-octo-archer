@@ -14,11 +14,11 @@ if ((WebApp.fatalError != null || WebApp.fatalError != undefined) && WebApp.fata
 			cls = '<div class="fatal-error-button"><a class="text-small" id="clearFatalError" href="javascript:void(0);" title="Close error">Close</a></div>';
 		}
 		var msg = '<p class="fatal-error-par"><span class="fatal-error-title text-medium">Message</span><span class="fatal-error-value text-medium">' + message + ' <i>in:</i></span></p>';
-		var url = '<p class="fatal-error-par"><span class="fatal-error-title text-medium">Url</span><span class="fatal-error-value text-medium">' + url + ' <i>at:</i></span></p>';
+		var uri = '<p class="fatal-error-par"><span class="fatal-error-title text-medium">Url</span><span class="fatal-error-value text-medium">' + url + ' <i>at:</i></span></p>';
 		var ln = '<p class="fatal-error-par"><span class="fatal-error-title text-medium">Ln</span><span class="fatal-error-value text-medium">' + rownumber + '</span></p>';
 		var col = '<p class="fatal-error-par"><span class="fatal-error-title text-medium">Col</span><span class="fatal-error-value text-medium">' + colnumber + '</span></p>';
 		var sep = '<div class="fatal-error-par-separator"></div>';
-		var panelContent = '<div class="fatal-error-panel">' + msg + url + ln + col + sep +'</div>';
+		var panelContent = '<div class="fatal-error-panel">' + msg + uri + ln + col + sep +'</div>';
 		var errorTitle = '<div class="fatal-error-bar text-big">Javascript Fatal Error</div>';
 		var html = '<div id="fatalErrorContent">' + icon + errorTitle + panelContent + cls + '</div>';
 		var panel = doc.createElement('div');

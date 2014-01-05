@@ -12,6 +12,7 @@ function(_, $, Backbone) {
 
         initialize: function() {
             var that = this;
+            return that;
         },
 		
 		makeInputXML: function(filters, order, pagination) {
@@ -26,19 +27,24 @@ function(_, $, Backbone) {
                 }
                 params_tag.appendTo(xml_tag);
             }
-            if (order && order.field && order.value) {
+            if (!isNull(order) && !isNull(order.field) && !isNull(order.value)) {
                 var orderby_tag = $('<orderby>');
                 $('<order>').attr('field', order.field).text(order.value).appendTo(orderby_tag);
                 orderby_tag.appendTo(xml_tag);
             }
-            if (pagination && pagination.rows && pagination.page) {
+            if (!isNull(pagination) && !isNull(pagination.rows) && !isNull(pagination.page)) {
                 var pagination_tag = $('<pagination>');
                 $('<rows>').text(pagination.rows).appendTo(pagination_tag);
                 $('<page>').text(pagination.page).appendTo(pagination_tag);
                 pagination_tag.appendTo(xml_tag);
-            }
+            }           
             
-            return xml_tag.wrapAll('<div></div>').parent().html();
+            var wrapped = xml_tag.wrapAll('<div></div>').parent().html();
+            
+            $.Log.debug('Created XML request');
+            $.Log.log(wrapped);
+            
+            return wrapped;
         }
        
     });

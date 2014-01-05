@@ -12,6 +12,7 @@ function(_, $, Backbone) {
 
         initialize: function() {
             var that = this;
+            return that;
         },
         
         parseAll: function(xml) {
@@ -27,21 +28,24 @@ function(_, $, Backbone) {
                 data: null
             }
             
-            if (res && res.output) {
+            if (!isNull(res) && !isNull(res.output)) {
                 var output = res.output;
                 var meta = that.getMeta(output);                
                 var data = that.getData(output);
      
-                if (meta) {
-                    object.meta.status = (meta.status && meta.status.Text) ? meta.status.Text : null;
-                    object.meta.message = (meta.message && meta.message.Text) ? meta.message.Text : null;
-                    object.meta.exception = (meta.exception && meta.exception.Text) ? meta.exception.Text : '';
-                    object.meta.records = (meta.records && meta.records.Text) ? meta.records.Text : null;
+                if (!isNull(meta)) {
+                    object.meta.status = (!isNull(meta.status) && !isNull(meta.status.Text)) ? meta.status.Text : null;
+                    object.meta.message = (!isNull(meta.message) && !isNull(meta.message.Text)) ? meta.message.Text : null;
+                    object.meta.exception = (!isNull(meta.exception) && !isNull(meta.exception.Text)) ? meta.exception.Text : '';
+                    object.meta.records = (!isNull(meta.records) && !isNull(meta.records.Text)) ? meta.records.Text : null;
                 }
-                if (data) {
+                if (!isNull(data)) {
                     object.data = data;
                 }
             }
+            
+            $.Log.debug('Parsed XML response');
+            $.Log.obj(object);
             
             return object;
         },
@@ -54,7 +58,7 @@ function(_, $, Backbone) {
         
         getMeta: function(output) {
             var that = this;
-            if (output && output.meta) {
+            if (!isNull(output) && !isNull(output.meta)) {
                 return output.meta;
             }
             return null; 
@@ -62,7 +66,7 @@ function(_, $, Backbone) {
         
         getData: function(output) {
             var that = this;
-            if (output && output.data) {
+            if (!isNull(output) && !isNull(output.data)) {
                 return output.data;
             }
             return null; 
@@ -71,7 +75,7 @@ function(_, $, Backbone) {
         getXmlMeta: function(xml) {
             var that = this;
             var res = that.parseAll(xml);
-            if (res && res.meta) {
+            if (!isNull(res) && !isNull(res.meta)) {
                 return res.meta;
             }
             return null;           
@@ -80,7 +84,7 @@ function(_, $, Backbone) {
         getXmlData: function() {
             var that = this;
             var res = that.parseAll(xml);            
-            if (res && res.data) {
+            if (!isNull(res) && !isNull(res.data)) {
                 return res.data;
             }
             return null; 

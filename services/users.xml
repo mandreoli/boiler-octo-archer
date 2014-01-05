@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<output>
+	<meta>
+		<status>ok</status>
+		<message>Success</message>
+		<records>3</records>
+		<exception/>
+	</meta>
+	<data>
+        <users>
+            <user>
+                <id>1</id>
+                <name>Mike</name>
+                <address>Bakery Street, 45</address>
+                <mail>mike@mail.com</mail>
+                <phones>
+                    <phone>
+                        <number>0523456</number>
+                        <type>home</type>
+                    </phone>
+                    <phone>
+                        <number>236565656</number>
+                        <type>mobile</type>
+                    </phone>
+                </phones>
+            </user>
+            <user>
+                <id>2</id>
+                <name>John</name>
+                <address>Narrow Road, 3</address>
+                <mail>john@mail.com</mail>
+                <phones>
+                    <phone>
+                        <number>0265689</number>
+                        <type>home</type>
+                    </phone>
+                </phones>
+            </user>
+            <user>
+                <id>3</id>
+                <name>Susan</name>
+                <address>National Street, 152</address>
+                <mail>sue@mail.com</mail>
+                <phones>
+                    <phone>
+                        <number>08956236</number>
+                        <type>home</type>
+                    </phone>
+                    <phone>
+                        <number>562147477</number>
+                        <type>mobile</type>
+                    </phone>
+                </phones>
+            </user>
+        </users>
+	</data>
+</output>

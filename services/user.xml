@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<output>
+	<meta>
+		<status>ok</status>
+		<message>Success</message>
+		<records>1</records>
+		<exception/>
+	</meta>
+	<data>
+		<user>
+			<id>1</id>
+			<name>Mike</name>
+			<address>Bakery Street, 45</address>
+			<mail>mike@mail.com</mail>
+			<phones>
+				<phone>
+					<number>0523456</number>
+					<type>home</type>
+				</phone>
+				<phone>
+					<number>236565656</number>
+					<type>mobile</type>
+				</phone>
+			</phones>
+		</user>
+	</data>
+</output>

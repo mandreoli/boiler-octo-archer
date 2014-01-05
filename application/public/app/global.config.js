@@ -23,7 +23,7 @@ WebApp.domain = '/boiler-octo-archer/application';
 //WebApp.domain = '/boiler-octo-archer/release';
 
 /* object: 0, log: 1, debug: 2, info: 3, warn: 4, error: 5 */
-WebApp.logEnabled = false;
+WebApp.logEnabled = true;
 WebApp.logLevel = 0;
 
 WebApp.fatalError = true;
@@ -54,7 +54,10 @@ WebApp.constants = {
     UNINITIALIZE: '',
     READ: 'R',
     UPDATE: 'U',
-    INSERT: 'I'
+    INSERT: 'I',
+    SYS_T_INTEGER: 'int',
+    SYS_T_STRING: 'string',
+    SYS_T_ARRAY: 'array'
 };
 
 WebApp.settings.services_url = {

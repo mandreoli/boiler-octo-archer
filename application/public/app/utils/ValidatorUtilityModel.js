@@ -16,6 +16,7 @@ function(_, $, Backbone) {
             var that = this;
             that.num_errors = 0;
 			that.messages = [];
+            return that;
         },
 		
 		incErrors: function() {
@@ -24,7 +25,7 @@ function(_, $, Backbone) {
 		},
 		
 		addMessage: function(message) {
-			var that = this;
+			var that = this;            
 			that.messages.push(message);
 		},
 		
@@ -56,7 +57,7 @@ function(_, $, Backbone) {
 			var message = null;
 			string = $.trim(string);
 			
-			if (min && string.length < min) {
+			if (!isNull(min) && string.length < min) {
 				message = '{0} minimum {1} characters.'.lang(WebApp.language).format(msg, min); 
 				//message = msg + 'minimo ' + min + ' caratteri.';
 				if (min == 1 || string == '') {
@@ -65,7 +66,7 @@ function(_, $, Backbone) {
 				}
 				num++;
 			}
-			else if (max && string.length > max) {
+			else if (!isNull(max) && string.length > max) {
 				message = '{0} maximum {1} characters.'.lang(WebApp.language).format(msg, max); 
 				//message = msg + 'massimo ' + max + ' caratteri.';
 				num++;
@@ -83,6 +84,9 @@ function(_, $, Backbone) {
 				cell.addClass('error');				
 				that.incErrors();
 				that.addMessage(message);
+                
+                $.Log.log('Validation error of string::{0}'.format(string));
+                
 				return false;
 			}
 			

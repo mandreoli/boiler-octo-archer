@@ -1,13 +1,13 @@
 ﻿define([
     'jquery',
     'underscore',
-    'backbone',
     'shared_views/base/BaseView',
 	'shared_views/widgets/ComboWidgetView',
 	'shared_views/widgets/MessageWidgetView',
+    'models/UserModel',
     'text!templates/start/startTemplate.html'
 ], 
-function($, _, Backbone, BaseView, ComboWidgetView, MessageWidgetView, startTemplate) {
+function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, startTemplate) {
     
     var StartView = BaseView.extend({
         
@@ -74,6 +74,9 @@ function($, _, Backbone, BaseView, ComboWidgetView, MessageWidgetView, startTemp
             comboView.render();
 			comboView.onBeforeLoadData();
 			comboView.setData([{ value: '1', text: 'One' }, { value: '2', text: 'Two' }], null, true);
+        
+            var user = new UserModel();    
+            user.getUser();
         }
         
     });

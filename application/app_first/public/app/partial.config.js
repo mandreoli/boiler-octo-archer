@@ -30,7 +30,8 @@ WebAppPartial.constants = {
 }
 
 WebAppPartial.settings.services_url = {
-	test: WebApp.urls.services + '/TestService.asmx/'
+    testUser: WebApp.urls.services + '/user.xml',
+    testUsers: WebApp.urls.services + '/users.xml'
 };
 
 WebAppPartial.database.tables = {
