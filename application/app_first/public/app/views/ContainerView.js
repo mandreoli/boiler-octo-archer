@@ -11,11 +11,7 @@ function($, _, Backbone, BaseView, containerTemplate) {
         
         tagName: 'div',
         id: 'contentLayout',
-		template: containerTemplate,
-        
-        options: {
-            viewport: null
-        },
+		template: containerTemplate,        
         
         caching: function() {
             var that = this;
@@ -27,6 +23,9 @@ function($, _, Backbone, BaseView, containerTemplate) {
 
         initialize: function() {
             var that = this;
+			that.options = {
+				viewport: null
+			};
         },
         
         render: function() {

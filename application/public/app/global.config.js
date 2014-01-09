@@ -41,6 +41,10 @@ WebApp.urls = {
 }
 
 WebApp.constants = {
+	AJAX_POST: 'POST',
+	AJAX_GET: 'GET',
+	AJAX_DTYPE_XML: 'text',
+	AJAX_DTYPE_JSON: 'json',
     DIALOG_QUESTION: 'question',
     DIALOG_SUCCESS: 'success',
     DIALOG_WARNING: 'warning',
@@ -61,7 +65,7 @@ WebApp.constants = {
 };
 
 WebApp.settings.services_url = {
-    access: WebApp.urls.services + '/AccessService.asmx/'
+    access: WebApp.urls.services + 'SomeService.php'
 };
 
 WebApp.database.tables = {

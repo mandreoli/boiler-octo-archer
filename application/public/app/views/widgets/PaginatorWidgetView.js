@@ -10,16 +10,7 @@ function($, _, Backbone, BaseView, paginatorWidgetTemplate) {
     var PaginatorWidgetView = BaseView.extend({
 
 		tagName: 'div',
-        className: 'paginator-container',
-	
-		options: {
-			parent: null,
-			input: null,
-			rows: null,
-			pages: 0,
-			records: null,
-			buttons: null
-		},
+        className: 'paginator-container',		
 
         events: {
         },
@@ -32,6 +23,14 @@ function($, _, Backbone, BaseView, paginatorWidgetTemplate) {
         
         initialize: function(elems) {
             var that = this;
+			that.options = {
+				parent: null,
+				input: null,
+				rows: null,
+				pages: 0,
+				records: null,
+				buttons: null
+			};
             that.options.parent = elems.parent;
 			that.options.pages = elems.pages;
 			that.options.rows = elems.rows;

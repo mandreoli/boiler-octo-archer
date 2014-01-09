@@ -6,12 +6,18 @@
 function($, _, Backbone) {
 
     var BaseView = Backbone.View.extend({
+		
+		constructor: function() {
+			var that = this;
+			that.options = {};
+			that.bindings = [];         
+			//that.model = null;
+			//that.collection = null;      
+			that.callsStack = [];
 
-        options: null,
-        bindings: [],         
-        model: null,
-        collection: null,      
-        callsStack: [],             
+			// Call the original constructor
+			Backbone.View.apply(that, arguments);
+		},
         
         appendSubview: function(view, el) {
 			var that = this;
@@ -20,6 +26,8 @@ function($, _, Backbone) {
 						
 			$.Log.debug('Append subview::{0}({1}) - Parent view::{2}({3})'.format(view._name, view.cid, that._name, that.cid));
 			$.Log.obj(view);
+			
+			return view;
         },		
         
         bindTo: function (model, ev, callback, once) {
@@ -33,7 +41,7 @@ function($, _, Backbone) {
 			//model.on(ev, callback, that);
             that.bindings.push({ model: model, ev: ev, callback: callback });
 			
-			$.Log.debug('Add bindTo::{0} - From view::{1}({2})'.format(model.cid, that._name, that.cid));
+			$.Log.debug('Add bindTo::{0}({1}) - From view::{2}({3})'.format(model.modelName, model.cid, that._name, that.cid));
 			$.Log.obj(that.bindings);
         },
 
@@ -42,7 +50,7 @@ function($, _, Backbone) {
             _.each(that.bindings, function (binding) {
                 that.stopListening(binding.model);
 				//binding.model.off(binding.ev, binding.callback);
-				$.Log.debug('Remove bindTo::{0} - From view::{1}({2})'.format(binding.model.cid, that._name, that.cid));
+				$.Log.debug('Remove bindTo::{0}({1}) - From view::{2}({3})'.format(binding.model.modelName, binding.model.cid, that._name, that.cid));
 				$.Log.obj(that.binding);
             });
             that.bindings = [];
@@ -129,7 +137,7 @@ function($, _, Backbone) {
 			$.Log.debug('Add subview::{0}({1}) - Parent view::{2}({3})'.format(name, subview.cid, this._name, this.cid));
 			$.Log.obj(subview);
 			
-            return subview;
+            return subview.parent;
         },
 
         // returns a subview with a given name

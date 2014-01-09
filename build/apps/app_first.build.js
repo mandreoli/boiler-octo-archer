@@ -51,14 +51,14 @@
         json:                   '../../../public/app/libs/json/json2-min',
         xmlToJson:              '../../../public/app/libs/xmltojson/xmlToJson-min',
         spin:                   '../../../public/app/libs/spin/spin-min',
-		protoutils:             '../../../public/app/libs/utility/protoutils',
-		logger:		            '../../../public/app/libs/logger/logger',
+		protoutils:             '../../../public/app/libs/utility/protoutils-min',
+		logger:		            '../../../public/app/libs/logger/logger-min',
         mask:                   '../../../public/app/libs/maskedinput/maskedinput-min',
         text:                   '../../../public/app/libs/require/text',
         shared_models:			'../../../public/app/models',
 		shared_views:			'../../../public/app/views',
 		shared_templates:		'../../../public/app/templates',
-		shared_widgets:			'../../../public/app/widgets'
+		shared_utils:			'../../../public/app/utils'
     },
     /* Define dependency (the same as your config.js file) */
     shim: {

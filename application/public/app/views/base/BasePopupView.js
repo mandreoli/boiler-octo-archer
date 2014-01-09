@@ -12,18 +12,7 @@ function($, _, Backbone, BaseView, LoaderWidgetView, MessageWidgetView, basePopu
     var BasePopupView = BaseView.extend({
         	
         id: 'popupContainer',
-        tagName: 'div',
-            
-        options: {
-            container: null,
-            loader: null,
-			loaderView: null,
-            content: null,
-            message: null,
-			messageView: null,
-            popupButtons: null,
-            escButton: null
-        },        
+        tagName: 'div',          
         
         events: {
            'click #popupMessage': 'hideMessage'
@@ -39,6 +28,16 @@ function($, _, Backbone, BaseView, LoaderWidgetView, MessageWidgetView, basePopu
         
         initBasePopup: function(params) {
             var that = this;
+			that.options = {
+				container: null,
+				loader: null,
+				loaderView: null,
+				content: null,
+				message: null,
+				messageView: null,
+				popupButtons: null,
+				escButton: null
+			};
 			that.components = [];            
             that.$el.html(basePopupTemplate).hide();            
             that.caching();	

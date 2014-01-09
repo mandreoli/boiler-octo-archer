@@ -9,13 +9,7 @@
 ], 
 function($, _, Backbone, BaseView, HeaderView, PageView, FooterView) {
     
-    var MainView = BaseView.extend({
-        
-        options: {
-            headerContainer: null,
-            pageContainer: null,
-            footerContainer: null
-        },
+    var MainView = BaseView.extend({        
 		
 		_name: null,
         
@@ -25,6 +19,11 @@ function($, _, Backbone, BaseView, HeaderView, PageView, FooterView) {
         initialize: function(elems) {
             var that = this;
 			that._name = elems.name;
+			that.options = {
+				headerContainer: null,
+				pageContainer: null,
+				footerContainer: null
+			};
             that.options.headerContainer = that.$el.find('#headerContainer');
             that.options.pageContainer = that.$el.find('#pageContainer');
             that.options.footerContainer = that.$el.find('#footerContainer');

@@ -1,0 +1,26 @@
+{
+	"meta": {
+		"status": "ok",
+		"message": "Success",
+		"records": 1,
+		"exception": ""
+	},
+	"data": {
+		"user": {
+			"id": 1,
+			"name": "Mike",
+			"address": "Bakery Street, 45",
+			"mail": "mike@mail.com",
+			"phones": [
+				{
+					"number": "0523456",
+					"type": "home"
+				},
+				{
+					"number": "236565656",
+					"type": "mobile"
+				}
+			]
+		}
+	}
+}

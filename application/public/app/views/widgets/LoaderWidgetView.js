@@ -12,18 +12,6 @@ function($, _, Backbone, Spinner, BaseView, loaderWidgetTemplate) {
 
 		tagName: 'div',
         className: 'loader-container',
-	
-		options: {
-			content: null,			
-			cid: null,
-			customId: null,
-			customClass: null,
-			customText: null,
-			loaderText: null,
-			spinner: null,
-			spinnerEnabled: null,
-			spinnerOpts: {}
-		},
 
         events: {
         },
@@ -37,7 +25,16 @@ function($, _, Backbone, Spinner, BaseView, loaderWidgetTemplate) {
         
         initialize: function(elems) {
             var that = this;
-            that.options.cid = that.cid;
+			that.options = {
+				content: null,
+				customId: null,
+				customClass: null,
+				customText: null,
+				loaderText: null,
+				spinner: null,
+				spinnerEnabled: null,
+				spinnerOpts: {}
+			};
 			that.options.customId = (!isNull(elems) && !isNull(elems.customId)) ? elems.customId : null;
 			that.options.customClass = (!isNull(elems) && !isNull(elems.customClass)) ? elems.customClass : '';
 			that.options.customText = (!isNull(elems) && !isNull(elems.customText)) ? elems.customText : null;
@@ -51,7 +48,7 @@ function($, _, Backbone, Spinner, BaseView, loaderWidgetTemplate) {
 			
             var template = _.template($(loaderWidgetTemplate).html());
             that.$el.html(template({
-                cid: that.options.cid,
+                cid: that.cid,
 				customId: that.options.customId,
 				customClass: that.options.customClass,
 				customText: that.options.customText

@@ -30,8 +30,8 @@ WebAppPartial.constants = {
 }
 
 WebAppPartial.settings.services_url = {
-    testUser: WebApp.urls.services + '/user.xml',
-    testUsers: WebApp.urls.services + '/users.xml'
+    getUser: WebApp.urls.services + '/user.json',
+    getUsers: WebApp.urls.services + '/users.json'
 };
 
 WebAppPartial.database.tables = {

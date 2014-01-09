@@ -14,8 +14,8 @@ require.config({
     // Paths that contain the various different javascript files.
     paths: {
         domReady:               WebApp.urls.libs + '/require/domReady',
-		protoutils:             WebApp.urls.libs + '/utility/protoutils',
-        logger:		            WebApp.urls.libs + '/logger/logger',
+		protoutils:             WebApp.urls.libs + '/utility/protoutils-min',
+        logger:		            WebApp.urls.libs + '/logger/logger-min',
 		jquery:                 WebApp.urls.libs + '/jquery/jquery-min',
         jqueryui:               WebApp.urls.libs + '/jquery/jquery-ui-min',     
         underscore:             WebApp.urls.libs + '/underscore/underscore-min',

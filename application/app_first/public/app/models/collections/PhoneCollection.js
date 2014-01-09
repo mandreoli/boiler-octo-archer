@@ -8,6 +8,7 @@ function($, _, BaseCollection, PhoneModel) {
 
     var PhoneCollection = BaseCollection.extend({        
 
+		collectionName: 'PhoneCollection',
         model: PhoneModel,
 
         defaults: function() {
@@ -18,7 +19,9 @@ function($, _, BaseCollection, PhoneModel) {
         
         initialize: function() {
             var that = this;
-            that.collectionName = 'PhoneCollection';
+			that.tags = { root: 'phones' };
+			
+			return that;
         }
         
     });

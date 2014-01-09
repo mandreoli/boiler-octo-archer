@@ -8,6 +8,8 @@ function($, _, BaseModel, PhoneCollection) {
 
     var UserModel = BaseModel.extend({
 
+		modelName: 'UserModel',
+	
         defaults: function() {
 			return _.extend({
 				id: null,
@@ -20,7 +22,6 @@ function($, _, BaseModel, PhoneCollection) {
         
         initialize: function() {
             var that = this;
-            that.modelName = 'UserModel';
             that.tags = { root: 'user', children: [
                 { node: 'id', type: WebApp.constants.SYS_T_INTEGER },
                 { node: 'name', type: WebApp.constants.SYS_T_STRING },
@@ -29,14 +30,28 @@ function($, _, BaseModel, PhoneCollection) {
                 { node: 'phones', type: WebApp.constants.SYS_T_ARRAY }
             ] };
             
-            that.set('phones', new PhoneCollection());            
+            that.set('phones', new PhoneCollection());
             
             return that;
         },
         
-        getUser: function(beforeCallback, successCallback, errorCallback) {
-            var that = this;
-            return that.call(WebAppPartial.settings.services_url.testUser, null, null, null, beforeCallback, successCallback, errorCallback);
+        getUser: function(filters, order, pagination, beforeCallback, successCallback, errorCallback) {
+            var that = this;			
+			var options = {
+				service: WebAppPartial.settings.services_url.getUser,
+				type: WebApp.constants.AJAX_POST,
+				dataType: WebApp.constants.AJAX_DTYPE_JSON
+			};
+			
+            return that.call(
+				options,
+				filters, 
+				order,
+				pagination, 
+				beforeCallback, 
+				successCallback, 
+				errorCallback
+			);
         }
        
     });

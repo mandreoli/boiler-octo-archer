@@ -5,23 +5,16 @@
 	'shared_views/widgets/ComboWidgetView',
 	'shared_views/widgets/MessageWidgetView',
     'models/UserModel',
+	'models/collections/UserCollection',
     'text!templates/start/startTemplate.html'
 ], 
-function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, startTemplate) {
+function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, UserCollection, startTemplate) {
     
     var StartView = BaseView.extend({
         
         tagName: 'div',
         id: 'startContainer',
-		template: startTemplate,
-        
-        options: {		
-			content: null,
-			combo: null,
-			successMessage: null,
-			errorMessage: null,
-			infoMessage: null
-        },
+		template: startTemplate,        
         
         caching: function() {
             var that = this;
@@ -38,6 +31,13 @@ function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, startTem
 
         initialize: function() {
             var that = this;
+			that.options = {		
+				content: null,
+				combo: null,
+				successMessage: null,
+				errorMessage: null,
+				infoMessage: null
+			};
         },
 		
 		gotoApp: function(ev, val) {
@@ -54,29 +54,31 @@ function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, startTem
             that.caching();
 			
 			var successView = new MessageWidgetView({ type: WebApp.constants.MESSAGE_SUCCESS });
-			that.addSubview(successView, 'successView');
-            that.appendSubview(successView, that.options.successMessage);
-            successView.render().setMessage("This is a success message!");
+			that.addSubview(successView, 'successView').appendSubview(successView, that.options.successMessage);
+            successView.render().setMessage('This is a success message!');
 			
 			var errorView = new MessageWidgetView({ type: WebApp.constants.MESSAGE_ERROR });
-			that.addSubview(errorView, 'errorView');
-            that.appendSubview(errorView, that.options.errorMessage);
-            errorView.render().setMessage("This is an error message!");
+			that.addSubview(errorView, 'errorView').appendSubview(errorView, that.options.errorMessage);
+            errorView.render().setMessage('This is an error message!');
 			
 			var infoView = new MessageWidgetView({ type: WebApp.constants.MESSAGE_ALERT });
-			that.addSubview(infoView, 'infoView');
-            that.appendSubview(infoView, that.options.infoMessage);
-            infoView.render().setMessage("This is an info message!");
+			that.addSubview(infoView, 'infoView').appendSubview(infoView, that.options.infoMessage);
+            infoView.render().setMessage('This is an info message!');
 			
 			var comboView = new ComboWidgetView({ customId: 'appCombo', defaultOpt: { value: 0, text: 'Select' } });
-			that.addSubview(comboView, 'comboView');
-            that.appendSubview(comboView, that.options.combo);
+			that.addSubview(comboView, 'comboView').appendSubview(comboView, that.options.combo);
             comboView.render();
 			comboView.onBeforeLoadData();
-			comboView.setData([{ value: '1', text: 'One' }, { value: '2', text: 'Two' }], null, true);
+			comboView.setData([{ value: '1', text: 'One' }, { value: '2', text: 'Two' }], null, true);			
         
             var user = new UserModel();    
-            user.getUser();
+            var xhr = user.getUser();
+			that.callsStack.push(xhr);
+			
+			var users = new UserCollection();    
+            var xhr = users.getUsers();			
+			that.callsStack.push(xhr);
+			
         }
         
     });

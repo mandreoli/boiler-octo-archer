@@ -10,17 +10,7 @@ function($, _, Backbone, BaseView, messageWidgetTemplate) {
     var MessageWidgetView = BaseView.extend({
 
 		tagName: 'div',
-        className: 'message-container',
-	
-		options: {
-			content: null,
-			message: null,
-			messageText: null,
-			cid: null,
-			customId: null,
-			customClass: null,
-			type: null
-		},
+        className: 'message-container',		
 
         events: {
 			'click .display-message': 'hideMessage'
@@ -31,22 +21,29 @@ function($, _, Backbone, BaseView, messageWidgetTemplate) {
 			that.options.content = that.$el.find('div');
 			that.options.messageText = that.options.content.find('span.text-message');
         },
-        
-        initialize: function(elems) {
-            var that = this;
-            that.options.cid = that.cid;
+		
+		initialize: function(elems) {
+			var that = this;
+			that.options = {
+				content: null,
+				message: null,
+				messageText: null,
+				customId: null,
+				customClass: null,
+				type: null
+			};
 			that.options.customId = (!isNull(elems) && !isNull(elems.customId)) ? elems.customId : null;
 			that.options.customClass = (!isNull(elems) && !isNull(elems.customClass)) ? elems.customClass : '';
 			that.options.type = (!isNull(elems) && !isNull(elems.type)) ? elems.type : WebApp.constants.MESSAGE_ERROR;	
-			that.render();
-        },
+			that.render();			
+		},
         
         render: function() {
             var that = this;
 			
             var template = _.template($(messageWidgetTemplate).html());
             that.$el.html(template({
-                cid: that.options.cid,
+                cid: that.cid,
 				customId: that.options.customId,
 				customClass: that.options.customClass,
 				type: that.options.type

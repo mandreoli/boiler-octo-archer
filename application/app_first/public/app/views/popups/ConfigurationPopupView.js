@@ -17,13 +17,6 @@ function($, _, Backbone, BasePopupView, configurationPopupTemplate) {
             }, this.constructor.__super__.events);
 		},
 		
-		options: function() {
-			return _.extend({
-				access: WebApp.constants.READ,
-				parent: null
-            }, this.constructor.__super__.options);
-		},
-		
 		caching_aux: function() {
             var that = this;        
         },
@@ -31,6 +24,11 @@ function($, _, Backbone, BasePopupView, configurationPopupTemplate) {
         initialize: function(elems) {            
             var that = this;         
 			that.initBasePopup(elems.params);
+			Object.extend( {
+					access: WebApp.constants.READ,
+					parent: null
+				}, that.options
+			);
 			that.options.parent = (elems.parent) ? elems.parent : that.options.parent;
 			that.options.access = elems.access;
 			

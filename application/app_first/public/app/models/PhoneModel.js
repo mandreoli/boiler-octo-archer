@@ -6,7 +6,9 @@
 function($, _, BaseModel) {
 
     var PhoneModel = BaseModel.extend({
-
+	
+		modelName: 'PhoneModel',
+	
         defaults: function() {
 			return _.extend({
 				number: null,
@@ -16,7 +18,6 @@ function($, _, BaseModel) {
         
         initialize: function() {
             var that = this;
-            that.modelName = 'PhoneModel';
             that.tags = { root: 'phone', children: [
                 { node: 'number', type: WebApp.constants.SYS_T_STRING },
                 { node: 'type', type: WebApp.constants.SYS_T_STRING }

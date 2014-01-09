@@ -1,0 +1,56 @@
+{
+	"meta": {
+		"status": "ok",
+		"message": "Success",
+		"records": 3,
+		"exception": ""
+	},
+	"data": {
+		"users": [
+			{
+				"id": 1,
+				"name": "Mike",
+				"address": "Bakery Street, 45",
+				"mail": "mike@mail.com",
+				"phones": [
+					{
+						"number": "0523456",
+						"type": "home"
+					},
+					{
+						"number": "236565656",
+						"type": "mobile"
+					}
+				]
+			},
+			{
+				"id": 2,
+				"name": "John",
+				"address": "Narrow Road, 3",
+				"mail": "john@mail.com",
+				"phones": [
+					{
+						"number": "0265689",
+						"type": "home"
+					}
+				]
+			},
+			{
+				"id": 3,
+				"name": "Susan",
+				"address": "National Street, 152",
+				"mail": "sue@mail.com",
+				"phones": [
+					{
+						"number": "08956236",
+						"type": "home"
+					},
+					{
+						"number": "562147477",
+						"type": "mobile"
+					}
+				]
+			}
+		]
+	}
+}
