@@ -74,11 +74,11 @@ function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, UserColl
             var user = new UserModel();    
             var xhr = user.getUser();
 			that.callsStack.push(xhr);
-			
+			/*
 			var users = new UserCollection();    
             var xhr = users.getUsers();			
 			that.callsStack.push(xhr);
-			
+			*/
         }
         
     });

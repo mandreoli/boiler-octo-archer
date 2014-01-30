@@ -2,9 +2,10 @@
     'jquery',
     'underscore',
     'shared_models/base/BaseModel',
+	'models/PhoneModel',
     'models/collections/PhoneCollection'
 ], 
-function($, _, BaseModel, PhoneCollection) {
+function($, _, BaseModel, PhoneModel, PhoneCollection) {
 
     var UserModel = BaseModel.extend({
 
@@ -16,6 +17,7 @@ function($, _, BaseModel, PhoneCollection) {
                 name: null,
                 address: null,
                 mail: null,
+				fax: null,
                 phones: null                
             }, this.constructor.__super__.defaults);
 		},
@@ -27,9 +29,11 @@ function($, _, BaseModel, PhoneCollection) {
                 { node: 'name', type: WebApp.constants.SYS_T_STRING },
                 { node: 'address', type: WebApp.constants.SYS_T_STRING },
                 { node: 'mail', type: WebApp.constants.SYS_T_STRING },
+				{ node: 'fax', type: WebApp.constants.SYS_T_MODEL },
                 { node: 'phones', type: WebApp.constants.SYS_T_ARRAY }
             ] };
             
+			that.set('fax', new PhoneModel());
             that.set('phones', new PhoneCollection());
             
             return that;
@@ -40,7 +44,7 @@ function($, _, BaseModel, PhoneCollection) {
 			var options = {
 				service: WebAppPartial.settings.services_url.getUser,
 				type: WebApp.constants.AJAX_POST,
-				dataType: WebApp.constants.AJAX_DTYPE_JSON
+				dataType: WebApp.constants.AJAX_DTYPE_XML
 			};
 			
             return that.call(

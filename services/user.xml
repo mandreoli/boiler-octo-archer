@@ -12,6 +12,10 @@
 			<name>Mike</name>
 			<address>Bakery Street, 45</address>
 			<mail>mike@mail.com</mail>
+			<fax>
+				<number>99887766</number>
+				<type>fax</type>
+			</fax>
 			<phones>
 				<phone>
 					<number>0523456</number>

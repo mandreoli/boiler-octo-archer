@@ -3,9 +3,9 @@
     /* Define app folder */
     baseUrl: '../../application/app_first/public/app/',
     /* Define require lib folder from baseUrl path */
-    name: '../../../public/app/libs/require/require',
+    name: '../../../bundles/app/libs/require/require',
     /* Include global.js and main.js */
-    include: ['../../../public/app/global.config', '../../../public/app/global.lang', 'partial.config', 'partial.lang', 'main'],  
+    include: ['../../../bundles/app/global.config', '../../../bundles/app/global.lang', 'partial.config', 'partial.lang', 'main'],  
     /* Output folder with the minified code */
     out: '../../release/app_first/public/app/app_first-built.js',  
     /* Minify code (set 'none' if you don't want minified code) */
@@ -42,23 +42,23 @@
     logLevel: 0,
     /* Define paths (from baseUrl path) used in the app (the same as your config.js file) */
     paths: {
-        domReady:               '../../../public/app/libs/require/domReady',
-        jquery:                 '../../../public/app/libs/jquery/jquery-min',
-        jqueryui:               '../../../public/app/libs/jquery/jquery-ui-min',     
-        underscore:             '../../../public/app/libs/underscore/underscore-min',
-        backbone:               '../../../public/app/libs/backbone/backbone-min',
-        taffy:                  '../../../public/app/libs/taffy/taffy-min',
-        json:                   '../../../public/app/libs/json/json2-min',
-        xmlToJson:              '../../../public/app/libs/xmltojson/xmlToJson-min',
-        spin:                   '../../../public/app/libs/spin/spin-min',
-		protoutils:             '../../../public/app/libs/utility/protoutils-min',
-		logger:		            '../../../public/app/libs/logger/logger-min',
-        mask:                   '../../../public/app/libs/maskedinput/maskedinput-min',
-        text:                   '../../../public/app/libs/require/text',
-        shared_models:			'../../../public/app/models',
-		shared_views:			'../../../public/app/views',
-		shared_templates:		'../../../public/app/templates',
-		shared_utils:			'../../../public/app/utils'
+        domReady:               '../../../bundles/app/libs/require/domReady',
+        jquery:                 '../../../bundles/app/libs/jquery/jquery-min',
+        jqueryui:               '../../../bundles/app/libs/jquery/jquery-ui-min',     
+        underscore:             '../../../bundles/app/libs/underscore/underscore-min',
+        backbone:               '../../../bundles/app/libs/backbone/backbone-min',
+        taffy:                  '../../../bundles/app/libs/taffy/taffy-min',
+        json:                   '../../../bundles/app/libs/json/json2-min',
+        xmlToJson:              '../../../bundles/app/libs/xmltojson/xmlToJson-min',
+        spin:                   '../../../bundles/app/libs/spin/spin-min',
+		protoutils:             '../../../bundles/app/libs/utility/protoutils-min',
+		logger:		            '../../../bundles/app/libs/logger/logger-min',
+        mask:                   '../../../bundles/app/libs/maskedinput/maskedinput-min',
+        text:                   '../../../bundles/app/libs/require/text',
+        shared_models:			'../../../bundles/app/models',
+		shared_views:			'../../../bundles/app/views',
+		shared_templates:		'../../../bundles/app/templates',
+		shared_utils:			'../../../bundles/app/utils'
     },
     /* Define dependency (the same as your config.js file) */
     shim: {

@@ -35,9 +35,9 @@ WebApp.version = '1.0.0';
 
 WebApp.urls = {
 	services: WebApp.domain + '/../services',	
-	assets: WebApp.domain + '/public/assets',
-	app: WebApp.domain + '/public/app',
-	libs: WebApp.domain + '/public/app/libs'
+	assets: WebApp.domain + '/bundles/assets',
+	app: WebApp.domain + '/bundles/app',
+	libs: WebApp.domain + '/bundles/app/libs'
 }
 
 WebApp.constants = {
@@ -61,7 +61,8 @@ WebApp.constants = {
     INSERT: 'I',
     SYS_T_INTEGER: 'int',
     SYS_T_STRING: 'string',
-    SYS_T_ARRAY: 'array'
+    SYS_T_ARRAY: 'array',
+	SYS_T_MODEL: 'model'
 };
 
 WebApp.settings.services_url = {

@@ -96,6 +96,7 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
                 var param = list[k].node;
                 var type = list[k].type;
                 var value = null;
+				
                 if (isNull(item[param])) {
 					if (that.dataType === WebApp.constants.AJAX_DTYPE_XML) {
 						$.Log.warn('XML tag <{0}> not found for model::{1}({2})'.format(param, that.modelName, that.cid));
@@ -111,19 +112,28 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
 					else {
 						value = item[param];
 					}
-                    
+					
                     $.Log.log('Setting attribute::{0}({1}) = {2}'.format(param, type, value));
                     if (WebApp.constants.SYS_T_INTEGER === type) {
                         that.set(param, value.toInt());
                     }
-                    else if (WebApp.constants.SYS_T_ARRAY === type) {                        
-						var collection = that.get(param).setCollection(item[param]);
+                    else if (WebApp.constants.SYS_T_ARRAY === type) {		
+						var collection = that.get(param).setCollection(item[param], that.dataType);										
 						that.get(param).add(collection);
 						
 						$.Log.debug('Mapped collection::{0}'.format(that.get(param).collectionName));
 						$.Log.obj(that.get(param));
                     }
-                    else {
+                    else if (WebApp.constants.SYS_T_MODEL === type) { 
+                        var model = that.get(param);
+						if (isNull(model)) {
+							var msg = 'No model associated to this object::{0}'.format(param);                
+							throw msg;
+						}
+						model.dataType = that.dataType;
+						model.map(item[param]);
+                    }
+					else {						
                         that.set(param, value);
                     }    
                 }

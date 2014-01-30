@@ -1,6 +1,6 @@
 <script id="messageWidgetTemplate" type="text/template">
 	
-    <div id="<%= (customId !== undefined && customId !== null) ? customId : 'messageWidget_' + cid  %>" class="hidden-elem display-message <%= customClass %>">
+    <div id="<%- (customId !== undefined && customId !== null) ? customId : 'messageWidget_' + cid  %>" class="hidden-elem display-message <%- customClass %>">
 		<% if (type === WebApp.constants.MESSAGE_ERROR) { %>
 			<div class="alert alert-error">
 				<div class="ui-widget">

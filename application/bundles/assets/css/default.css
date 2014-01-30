@@ -19,7 +19,7 @@
 	width: 48px;
 	height: 48px;
 	margin: auto;
-	background-image: url('../../../public/assets/images/icons/fatal_error.png');
+	background-image: url('../../../bundles/assets/images/icons/fatal_error.png');
 }
 #fatalErrorContent .fatal-error-button{
 	position: relative;
@@ -91,7 +91,7 @@
     width: 100%;
     height: 40px;
 	position: relative;
-	background-image: url('../../../public/assets/images/layouts/header_small_bg.png');
+	background-image: url('../../../bundles/assets/images/layouts/header_small_bg.png');
 	background-repeat: repeat-x;
 }
 #headerContainer #headerShadow{
@@ -99,7 +99,7 @@
 	height: 40px;
 	top: 35px;
 	position: absolute;
-	background-image: url('../../../public/assets/images/layouts/header_bg_shadow.png');
+	background-image: url('../../../bundles/assets/images/layouts/header_bg_shadow.png');
 	background-repeat: no-repeat;	
 	z-index: 0;
 }
@@ -107,7 +107,7 @@
 	position: relative;
 	width: 100%;
 	height: 5px;
-	background-image: url('../../../public/assets/images/layouts/header_bar_small_bg.png');
+	background-image: url('../../../bundles/assets/images/layouts/header_bar_small_bg.png');
 	background-repeat: repeat-x;
 }
 #headerContainer #headerContent{
@@ -172,15 +172,15 @@
     background-repeat: no-repeat;
 }
 #headerContainer #headerContent .icon.title{
-    background-image: url('../../../public/assets/images/icons/title_icon.png');
+    background-image: url('../../../bundles/assets/images/icons/title_icon.png');
 }
 #headerContainer #headerContent .icon.exit{
-    background-image: url('../../../public/assets/images/icons/exit_icon.png');
+    background-image: url('../../../bundles/assets/images/icons/exit_icon.png');
 }
 /* page */
 #pageContainer{
     width: 100%;
-    background-image: url('../../../public/assets/images/layouts/container_bg.jpg');
+    background-image: url('../../../bundles/assets/images/layouts/container_bg.jpg');
     background-position:center;
     background-repeat: no-repeat;
     background-color: #fff;
@@ -190,7 +190,7 @@
 	display: block;
 	position: relative;	
     min-height: 570px;
-    background-image: url('../../../public/assets/images/layouts/container_opacity.png');
+    background-image: url('../../../bundles/assets/images/layouts/container_opacity.png');
 }
 #containerErrorMessage {
     margin: 20px;
@@ -220,7 +220,7 @@
     z-index: 80;
 	width: 100%;
     height: 100%;
-    background-image: url('../../../public/assets/images/layouts/container_opacity_loader.png');
+    background-image: url('../../../bundles/assets/images/layouts/container_opacity_loader.png');
 }
 .list-table-loader .text-container{
 	width: 100%;
@@ -391,19 +391,19 @@ ul.list-table.list-table-footer .paginator-content .paginator-text p{
 	margin: 0 3px;
 }
 ul.list-table.list-table-footer .paginator-content .first-page{
-	background-image: url('../../../public/assets/images/icons/first_page.png');
+	background-image: url('../../../bundles/assets/images/icons/first_page.png');
 	background-repeat: no-repeat;
 }
 ul.list-table.list-table-footer .paginator-content .prev-page{
-	background-image: url('../../../public/assets/images/icons/prev_page.png');
+	background-image: url('../../../bundles/assets/images/icons/prev_page.png');
 	background-repeat: no-repeat;
 }
 ul.list-table.list-table-footer .paginator-content .next-page{
-	background-image: url('../../../public/assets/images/icons/next_page.png');
+	background-image: url('../../../bundles/assets/images/icons/next_page.png');
 	background-repeat: no-repeat;
 }
 ul.list-table.list-table-footer .paginator-content .last-page{
-	background-image: url('../../../public/assets/images/icons/last_page.png');
+	background-image: url('../../../bundles/assets/images/icons/last_page.png');
 	background-repeat: no-repeat;
 }
 /** END LIST TABLE PAGINATOR */
@@ -485,7 +485,7 @@ input.error,
     height: 48px;
 	margin: 5px 10px 5px 0;
 	display: block;
-    background-image: url('../../../public/assets/images/dialogs/dialog_icon_flat.png');
+    background-image: url('../../../bundles/assets/images/dialogs/dialog_icon_flat.png');
 	background-repeat: no-repeat;
 }
 .dialog-icon-container .dialog-icon-image.dialog-icon-error { background-position: 0px 0px;  } 
@@ -501,7 +501,7 @@ input.error,
     z-index: 10;
 	width: 100%;
     height: 100%;
-    background-image: url('../../../public/assets/images/layouts/container_opacity_loader.png');
+    background-image: url('../../../bundles/assets/images/layouts/container_opacity_loader.png');
 }
 .page-loader .text-container{
 	width: 100%;
@@ -637,7 +637,7 @@ input[type="checkbox"]{
     width: 24px;
     height: 24px;
     margin: 3px;
-    background-image: url('../../../public/assets/images/icons/checkboxes_24.png');
+    background-image: url('../../../bundles/assets/images/icons/checkboxes_24.png');
 	background-repeat: no-repeat;
 }
 .flat-checkbox.input-medium.unchecked{ background-position: 0px 0px;  }
@@ -648,7 +648,7 @@ input[type="checkbox"]{
     width: 22px;
     height: 22px;
     margin: 2px;
-    background-image: url('../../../public/assets/images/icons/checkboxes_22.png');
+    background-image: url('../../../bundles/assets/images/icons/checkboxes_22.png');
 	background-repeat: no-repeat;
 }
 .flat-checkbox.input-small.unchecked{ background-position: 0px 0px;  }
@@ -710,7 +710,7 @@ input[type="radio"].input-small{
 	margin:	10px auto;
     width: 32px;
     height: 32px;    
-    background: url('../../../public/assets/images/icons/access_icon.png') no-repeat;
+    background: url('../../../bundles/assets/images/icons/access_icon.png') no-repeat;
 }
 .scrollable-elem{
 	position: relative;

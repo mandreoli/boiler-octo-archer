@@ -8,7 +8,7 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
 
     var BaseCollection = Backbone.Collection.extend({
         
-		dataType: null,
+		dataType: WebApp.constants.AJAX_DTYPE_JSON,
 		collectionName: null,
         model: null,        
         
@@ -98,15 +98,17 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
 			return data;
 		},
         
-        setCollection: function(items) {
+        setCollection: function(items, dataType) {
             var that = this;
 			var collection = [];
+			that.dataType = (!isNull(dataType)) ? dataType : that.dataType;
 			
             if (isNull(that.model)) {
                 var msg = 'No model associated to this collection::{0}'.format(that.collectionName);                
                 throw msg;
             }
             var model = new that.model();
+			model.dataType = that.dataType;
             var root = model.tags.root;
             
             if (isNull(root)) {
@@ -134,14 +136,14 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
 					var item = null;
 					$.Log.debug('Mapping models::{0} into collection::{1}'.format(model.modelName, that.collectionName));
                     if (!(list instanceof Array)) {
-                        item = list;  
-						m = that.map(item);						
+                        item = list; 
+						m = that.map(item);		
                         collection.push(m);
 						$.Log.log('Pushed model::{0}({1}) into collection::{2}'.format(m.modelName, m.cid, that.collectionName));
                     }
                     else {
                         for (var i = 0; i < list.length; i++) {
-                            item = list[i];     
+                            item = list[i];     							
 							m = that.map(item);						
 							collection.push(m);
 							$.Log.log('Pushed model::{0}({1}) into collection::{2}'.format(m.modelName, m.cid, that.collectionName));
@@ -156,8 +158,9 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
         map: function(item) {
             var that = this; 
             var model = new that.model();
+			model.dataType = that.dataType;
             model.map(item);
-            
+			
             return model;
         },
         

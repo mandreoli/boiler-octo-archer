@@ -8,10 +8,10 @@
         <title>Template one</title>   
         <link rel="shortcut icon" href="" />   
         <base href="/boiler-octo-archer/release/app_second/" target="_self" />
-        <link href="../public/assets/css/ericmeyer_reset.css" rel="stylesheet" type="text/css" />
-        <link href="../public/assets/libs/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" type="text/css" />
-        <link href="../public/assets/css/fonts.css" rel="stylesheet" type="text/css" />
-        <link href="../public/assets/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="../bundles/assets/css/ericmeyer_reset.css" rel="stylesheet" type="text/css" />
+        <link href="../bundles/assets/libs/jquery-ui-custom/jquery-ui-custom.css" rel="stylesheet" type="text/css" />
+        <link href="../bundles/assets/css/fonts.css" rel="stylesheet" type="text/css" />
+        <link href="../bundles/assets/css/default.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="./public/app/app_second-built.js"></script>    
     </head>
     <body>
