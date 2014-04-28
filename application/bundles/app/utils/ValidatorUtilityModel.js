@@ -35,7 +35,7 @@ function(_, $, Backbone) {
 				div.find('.text-message').empty();
 				
 				if (parseInt(that.num_errors, 10) != 0) {
-					var ul = $('<ul class="errors_list">');
+					var ul = $('<ul class="errors-list">');
 					for (var k = 0; k < that.messages.length; k++) {
 						$('<li>').html(that.messages[k]).appendTo(ul);
 					}

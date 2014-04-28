@@ -70,15 +70,15 @@ function($, _, BaseView, ComboWidgetView, MessageWidgetView, UserModel, UserColl
             comboView.render();
 			comboView.onBeforeLoadData();
 			comboView.setData([{ value: '1', text: 'One' }, { value: '2', text: 'Two' }], null, true);			
-        
+			/*
             var user = new UserModel();    
             var xhr = user.getUser();
 			that.callsStack.push(xhr);
-			/*
+			*/
 			var users = new UserCollection();    
             var xhr = users.getUsers();			
 			that.callsStack.push(xhr);
-			*/
+			
         }
         
     });

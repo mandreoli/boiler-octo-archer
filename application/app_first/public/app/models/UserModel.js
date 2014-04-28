@@ -44,7 +44,7 @@ function($, _, BaseModel, PhoneModel, PhoneCollection) {
 			var options = {
 				service: WebAppPartial.settings.services_url.getUser,
 				type: WebApp.constants.AJAX_POST,
-				dataType: WebApp.constants.AJAX_DTYPE_XML
+				dataType: WebApp.constants.AJAX_DTYPE_JSON
 			};
 			
             return that.call(

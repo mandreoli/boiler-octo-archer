@@ -30,7 +30,7 @@ WebAppPartial.constants = {
 }
 
 WebAppPartial.settings.services_url = {
-    getUser: WebApp.urls.services + '/user.xml',
+    getUser: WebApp.urls.services + '/user.json',
     getUsers: WebApp.urls.services + '/users.json'
 };
 
