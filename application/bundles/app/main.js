@@ -40,8 +40,8 @@ function(DomReady, Router, App) {
         $.Log.info('INITIALIZE Router');
 		App.appRouter = new Router();		
         App.init(WebAppPartial.urls.root, 'GlobalMainView');
-		App.start();		
-       
+		App.start();
+	   
         // Trigger the initial route and enable HTML5 History API support, set the
         // root folder to '/' by default. Change in app.js.        			
 		$.Log.info('ROUTING STARTED');
@@ -50,8 +50,8 @@ function(DomReady, Router, App) {
 			hashChange: true,
 			root: App.root, 
 			silent: false
-		});		
-
+		});	
+		
         // All navigation that is relative should be passed through the navigate
         // method, to be processed by the router. If the link has a `data-bypass`
         // attribute, bypass the delegation completely.

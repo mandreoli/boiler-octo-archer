@@ -41,7 +41,6 @@ function($, _, Backbone, BaseView, comboWidgetTemplate) {
 			that.options.customId = (!isNull(elems) && !isNull(elems.customId)) ? elems.customId : null;
 			that.options.customClass = (!isNull(elems) && !isNull(elems.customClass)) ? elems.customClass : '';
 			that.options.labelText = (!isNull(elems) && !isNull(elems.labelText)) ? elems.labelText : '';
-			that.options.labelText = (!isNull(elems) && !isNull(elems.labelText)) ? elems.labelText : '';
 			if (!isNull(elems) && !isNull(elems.defaultOpt)) {
 				that.options.defaultOpt['value'] = (!isNull(elems.defaultOpt.value)) ? elems.defaultOpt.value : '';
 				that.options.defaultOpt['text'] = (!isNull(elems.defaultOpt.text)) ? elems.defaultOpt.text : '';

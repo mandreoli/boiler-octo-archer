@@ -1,6 +1,5 @@
 define([
     'shared_views/MainView',
-    'jqueryui',
     'taffy',
     'json',
     'xmlToJson',

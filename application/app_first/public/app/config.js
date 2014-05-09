@@ -9,7 +9,7 @@ require.config({
     waitSeconds: 30,
     
     // deps holds dependencies to load as soon as require is defined.
-    deps: ['partial.config', 'partial.lang', 'main'],
+    deps: ['partial.config', 'partial.lang', '../../../bundles/app/main'],
     
     // Paths that contain the various different javascript files.
     paths: {
@@ -23,8 +23,7 @@ require.config({
         taffy:                  WebApp.urls.libs + '/taffy/taffy-min',
         json:                   WebApp.urls.libs + '/json/json2-min',
         xmlToJson:              WebApp.urls.libs + '/xmltojson/xmlToJson-min',
-        spin:                   WebApp.urls.libs + '/spin/spin-min',
-        mask:                   WebApp.urls.libs + '/maskedinput/maskedinput-min',		
+        spin:                   WebApp.urls.libs + '/spin/spin-min',		
         text:                   WebApp.urls.libs + '/require/text',
         shared_models:			WebApp.urls.app + '/models',
 		shared_views:			WebApp.urls.app + '/views',
@@ -55,9 +54,6 @@ require.config({
             deps: ['jquery'] 
         },
         'spin': {
-            deps: ['jquery'] 
-        },
-        'mask': {
             deps: ['jquery'] 
         }
     }

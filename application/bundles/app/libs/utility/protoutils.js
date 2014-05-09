@@ -8,6 +8,7 @@
 if ((WebApp.fatalError != null || WebApp.fatalError != undefined) && WebApp.fatalError === true) {
 	window.onerror = function(message, url, rownumber, colnumber) {
 		var doc = window.document;
+alert(message);
 		var icon = '<span class="fatal-error-icon"></span>';
 		var cls = '';
 		if ((WebApp.fatalErrorClose != null || WebApp.fatalErrorClose != undefined) && WebApp.fatalErrorClose === true) {
