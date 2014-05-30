@@ -2,13 +2,16 @@
     'underscore',
     'backbone',
     'shared_utils/XmlInputFormatterUtilityModel',
+	'shared_utils/JsonInputFormatterUtilityModel',
     'shared_utils/XmlOutputParserUtilityModel'
 ], 
-function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel) {
+function(_, Backbone, XmlInputFormatterUtilityModel, JsonInputFormatterUtilityModel, XmlOutputParserUtilityModel) {
 
     var BaseCollection = Backbone.Collection.extend({
         
 		dataType: WebApp.constants.AJAX_DTYPE_JSON,
+		contentType: WebApp.constants.AJAX_CTYPE_JSON,
+		queryType: WebApp.constants.AJAX_DATA_JSON,
 		collectionName: null,
         model: null,        
         
@@ -71,7 +74,7 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
                     }
                 }
             } catch (e) {
-                var msg = 'Error while mapping collection::{0} - {2}'.format(that.collectionName, e);
+                var msg = 'Error while mapping collection::{0} - {1}'.format(that.collectionName, e);
                 $.Log.error(msg);
                 throw new Error(msg);                
             }
@@ -166,18 +169,28 @@ function(_, Backbone, XmlInputFormatterUtilityModel, XmlOutputParserUtilityModel
         
         call: function(options, filters, order, pagination, beforeCallback, successCallback, errorCallback) {
             var that = this;
+			var data = null;
 			var service = (!isNull(options) && !isNull(options.service)) ? options.service : '';
 			var type = (!isNull(options) && !isNull(options.type)) ? options.type : WebApp.constants.AJAX_POST;
-			that.dataType = (!isNull(options) && !isNull(options.dataType)) ? options.dataType : WebApp.constants.AJAX_DTYPE_XML;
+			that.dataType = (!isNull(options) && !isNull(options.dataType)) ? options.dataType : WebApp.constants.AJAX_DTYPE_JSON;
+			that.contentType = (!isNull(options) && !isNull(options.contentType)) ? options.contentType : WebApp.constants.AJAX_CTYPE_JSON;
+			that.queryType = (!isNull(options) && !isNull(options.queryType)) ? options.queryType : WebApp.constants.AJAX_DATA_JSON;
 			
-            var xmlFormatter = new XmlInputFormatterUtilityModel();
-            var xml = xmlFormatter.makeInputXML(filters, order, pagination);
+            if (that.queryType === WebApp.constants.AJAX_DATA_JSON) {
+				var jsonFormatter = new JsonInputFormatterUtilityModel();
+				data = jsonFormatter.makeInputJSON(filters, order, pagination);  
+			}
+			else {
+				var xmlFormatter = new XmlInputFormatterUtilityModel();
+				data = xmlFormatter.makeInputXML(filters, order, pagination);         
+			}
             
 			$.Log.debug('Fetching data from::{0}'.format(service));
             var xhr = that.fetch({
                 type: type,
                 dataType: that.dataType,
-                data: { xml : encodeURIComponent(xml) },
+				contentType: that.contentType,
+                data: { content : encodeURIComponent(data) },
                 url: service,
                 beforeSend: beforeCallback,
                 success: successCallback,

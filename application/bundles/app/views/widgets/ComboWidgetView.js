@@ -121,7 +121,7 @@ function($, _, Backbone, BaseView, comboWidgetTemplate) {
 			that.options.comboValues = [];
 			var option = {
 				value: '',
-				text: (!isNull(message)) ? message : 'Loading data...'.lang(WebApp.language),
+				text: (!isNull(message)) ? message : 'COMBO_LOAD_DATA'.lang(WebApp.language),
 				alt: '',
 				title: (!isNull(description)) ? description : message
 			};
@@ -170,7 +170,7 @@ function($, _, Backbone, BaseView, comboWidgetTemplate) {
 			that.options.comboValues = [];
 			var option = {
 				value: '',
-				text: (!isNull(message)) ? message : 'Error'.lang(WebApp.language),
+				text: (!isNull(message)) ? message : 'COMBO_LOAD_ERROR'.lang(WebApp.language),
 				alt: '',
 				title: (!isNull(exception)) ? exception : message
 			};

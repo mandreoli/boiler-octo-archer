@@ -2,7 +2,12 @@ require([
     'domReady',
     'router',
     'app',
-	'logger'
+	'logger',
+	'jqueryui',
+	'taffy',
+    'json',	
+    'xmlToJson',
+	'protoutils'
 ],
 function(DomReady, Router, App) {
 
@@ -41,7 +46,11 @@ function(DomReady, Router, App) {
 		App.appRouter = new Router();		
         App.init(WebAppPartial.urls.root, 'GlobalMainView');
 		App.start();
-	   
+		
+		window.onbeforeunload = function() { 
+			return null;
+		};
+		
         // Trigger the initial route and enable HTML5 History API support, set the
         // root folder to '/' by default. Change in app.js.        			
 		$.Log.info('ROUTING STARTED');

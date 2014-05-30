@@ -8,7 +8,7 @@
 if ((WebApp.fatalError != null || WebApp.fatalError != undefined) && WebApp.fatalError === true) {
 	window.onerror = function(message, url, rownumber, colnumber) {
 		var doc = window.document;
-alert(message);
+
 		var icon = '<span class="fatal-error-icon"></span>';
 		var cls = '';
 		if ((WebApp.fatalErrorClose != null || WebApp.fatalErrorClose != undefined) && WebApp.fatalErrorClose === true) {
@@ -20,7 +20,7 @@ alert(message);
 		var col = '<p class="fatal-error-par"><span class="fatal-error-title text-medium">Col</span><span class="fatal-error-value text-medium">' + colnumber + '</span></p>';
 		var sep = '<div class="fatal-error-par-separator"></div>';
 		var panelContent = '<div class="fatal-error-panel">' + msg + uri + ln + col + sep +'</div>';
-		var errorTitle = '<div class="fatal-error-bar text-big">Javascript Fatal Error</div>';
+		var errorTitle = '<div class="fatal-error-bar text-big">Javascript Fatal Error<br/><span class="text-very-small">Boiler-Octopus has encountered an error</span></div>';
 		var html = '<div id="fatalErrorContent">' + icon + errorTitle + panelContent + cls + '</div>';
 		var panel = doc.createElement('div');
 		var body = doc.getElementsByTagName('body')[0].appendChild(panel);
@@ -45,6 +45,13 @@ alert(message);
 
 isNull = function(value) { 
 	if (value === undefined || value === null || value === NaN) {
+		return true;
+	}
+	return false;
+} || isNull;
+
+isNullOrEmpty = function(value) { 
+	if (value === '' || value === undefined || value === null || value === NaN) {
 		return true;
 	}
 	return false;

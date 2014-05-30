@@ -46,7 +46,6 @@ function($, _, Backbone, BaseView, ModalDialogView, headerTemplate) {
 				((isNull(WebAppPartial.subtitle) || WebAppPartial.subtitle == '') && (isNull(WebAppPartial.subversion) || WebAppPartial.subversion == ''))
 			) {
 				that.$el.find('#titleSeparator').hide();
-				alert('hide');
 			}
 			else {
 				that.$el.find('#titleSeparator').show();
@@ -61,8 +60,8 @@ function($, _, Backbone, BaseView, ModalDialogView, headerTemplate) {
 			that.addSubview(dialog, 'modalDialogView');
 			dialog.render(
                 WebApp.constants.DIALOG_QUESTION,
-                'Close application'.lang(WebApp.language),
-                'Are you sure that you want to close the application <strong>{0}</strong>?'.lang(WebApp.language).format(that.options.title.text()),
+                'APP_CLOSE_TITLE'.lang(WebApp.language),
+                'APP_CLOSE_CONFIRM_MSG'.lang(WebApp.language).format(that.options.title.text()),
                 function(ret) {
 					var self = that;
 					if (ret) {

@@ -29,14 +29,14 @@ WebApp.logLevel = 0;
 WebApp.fatalError = true;
 WebApp.fatalErrorClose = true;
 
-WebApp.language = 'it';
+WebApp.language = 'en';
 WebApp.title = 'Boilerplate';
 WebApp.version = '1.0.0';
 
 WebApp.urls = {
-	services: WebApp.domain + '/../services',	
-	assets: WebApp.domain + '/bundles/assets',
 	app: WebApp.domain + '/bundles/app',
+	services: WebApp.domain + '/../services',	
+	assets: WebApp.domain + '/bundles/assets',	
 	libs: WebApp.domain + '/bundles/app/libs'
 }
 
@@ -45,6 +45,10 @@ WebApp.constants = {
 	AJAX_GET: 'GET',
 	AJAX_DTYPE_XML: 'text',
 	AJAX_DTYPE_JSON: 'json',
+	AJAX_CTYPE_XML: 'text/xml; charset=utf-8',
+	AJAX_CTYPE_JSON: 'application/json; charset=utf-8',
+	AJAX_DATA_XML: 'text',
+	AJAX_DATA_JSON: 'json',
     DIALOG_QUESTION: 'question',
     DIALOG_SUCCESS: 'success',
     DIALOG_WARNING: 'warning',

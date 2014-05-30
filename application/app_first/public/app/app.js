@@ -1,9 +1,5 @@
 define([
-    'shared_views/MainView',
-    'taffy',
-    'json',
-    'xmlToJson',
-	'protoutils'
+    'shared_views/MainView'
 ],
 function(MainView) {
 

@@ -58,21 +58,21 @@ function(_, $, Backbone) {
 			string = $.trim(string);
 			
 			if (!isNull(min) && string.length < min) {
-				message = '{0} minimum {1} characters.'.lang(WebApp.language).format(msg, min); 
+				message = 'INVALID_MIN'.lang(WebApp.language).format(msg, min); 
 				//message = msg + 'minimo ' + min + ' caratteri.';
 				if (min == 1 || string == '') {
-					message = '{0} mandatory.'.lang(WebApp.language).format(msg); 
+					message = 'INVALID_MANDATORY'.lang(WebApp.language).format(msg); 
 					//message = msg + 'obbligatorio.';
 				}
 				num++;
 			}
 			else if (!isNull(max) && string.length > max) {
-				message = '{0} maximum {1} characters.'.lang(WebApp.language).format(msg, max); 
+				message = 'INVALID_MAX'.lang(WebApp.language).format(msg, max); 
 				//message = msg + 'massimo ' + max + ' caratteri.';
 				num++;
 			}
 			else if (regexp && string.length > 0 && !regexp.test(string)) {				
-				message = '{0} characters not allowed.'.lang(WebApp.language).format(msg); 
+				message = 'INVALID_CHARS'.lang(WebApp.language).format(msg); 
 				//message = msg + 'caratteri non ammessi.';
 				if (msgCustom) {
 					message = msg + msgCustom;
@@ -119,7 +119,7 @@ function(_, $, Backbone) {
 				else {
 					cell.addClass('error');				
 					that.incErrors();
-					that.addMessage('{0} not a valid date.'.lang(WebApp.language).format(msg));
+					that.addMessage('INVALID_DATE'.lang(WebApp.language).format(msg));
 					//that.addMessage(msg + 'data non valida.');
 					return false
 				}
@@ -379,7 +379,7 @@ function(_, $, Backbone) {
 			if (string_A != string_B) {
 				cell.addClass('error');
 				that.incErrors();
-				that.addMessage('{0} the strings are different.'.lang(WebApp.language).format(msg));
+				that.addMessage('INVALID_STR_DIFF'.lang(WebApp.language).format(msg));
 				//that.addMessage(msg + 'le stringhe sono diverse.');
 				return false;
 			}

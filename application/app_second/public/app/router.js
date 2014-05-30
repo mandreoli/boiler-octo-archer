@@ -1,34 +1,21 @@
 define([
-  'app',
-  'views/start/StartView'
+  'app',  
+  'shared_app/router',
+  'views/start/StartView' 
 ], 
-function(App, StartView) {
+function(App, BaseRouter, StartView) {
 
-    var Router = Backbone.Router.extend({
+    var Router = BaseRouter.extend({
 
         initialize: function() {
             var that = this;
-			Backbone.View.prototype.navigateTo = function (location, trigger, replace) {
-                that.navigate(location, { trigger: trigger, replace: replace });
-            };			
-        },
-        
-        callsStack: [],
-        
-        routes: {
-			'goto/:id': 'gotoApp', 
-            '*actions': 'defaultAction'
-        },
-		
-		gotoApp: function(id) {
-			var that = this;	
-			$.Log.debug('Routed::gotoApp - Params::{0}'.format(id));			
-            that.abortPendingCalls();
 			
-			if (id == 1) {
-				App.destroy();
-				window.location.href = WebAppPartial.urls.app_first;
-			}
+        },
+        
+        routes: function() {  
+			return _.extend({
+				'*actions': 'defaultAction'
+            }, this.constructor.__super__.routes);
 		},
 		
         defaultAction: function(uri) {
@@ -44,26 +31,6 @@ function(App, StartView) {
             pageView.addSubview(startView, 'centerPaneView');
             pageView.appendSubview(startView, pageView.options.viewport);
             startView.render();
-        },
-        
-        abortPendingCalls: function() {
-            var that = this;
-            for (var xhr in that.callsStack) {
-                var call = that.callsStack[xhr];
-                try {                    
-                    if (call.readyState !== 4) {
-						$.Log.debug('XHR aborted::{0} - From router'.format(readyState));
-						$.Log.obj(call);
-		                call.abort();
-		            }
-		            that.callsStack[xhr] = null;
-			        delete that.callsStack[xhr];
-		        }
-		        catch(e) {
-			        that.callsStack[xhr] = null;
-			        delete that.callsStack[xhr];
-			    }	
-            }
         }
 		
     });

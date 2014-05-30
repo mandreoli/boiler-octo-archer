@@ -28,7 +28,8 @@ require.config({
         shared_models:			WebApp.urls.app + '/models',
 		shared_views:			WebApp.urls.app + '/views',
 		shared_templates:		WebApp.urls.app + '/templates',
-		shared_utils:			WebApp.urls.app + '/utils'	
+		shared_utils:			WebApp.urls.app + '/utils',
+		shared_app:				WebApp.urls.app
     },
     
     /*

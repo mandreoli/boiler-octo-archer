@@ -19,7 +19,7 @@ function($, _, Backbone, BaseView, modalDialogTemplate) {
         initialize: function(params) {
             var that = this;
             $('body').append(that.$el.hide());
-            
+			
             that.$el.dialog({ 
                 autoOpen: false,
                 position: ['auto', 'auto'],                
@@ -44,7 +44,7 @@ function($, _, Backbone, BaseView, modalDialogTemplate) {
                 that.$el.dialog({
                     title: title,
                     buttons: [{
-						text: 'Ok'.lang(WebApp.language),
+						text: 'MODAL_DIALOG_CANCEL_BTN'.lang(WebApp.language),
                         click: function() { 
                             $(this).dialog('close');
 							
@@ -59,13 +59,13 @@ function($, _, Backbone, BaseView, modalDialogTemplate) {
                 that.$el.dialog({ 
                     title: title,
                     buttons: [{
-						text: 'Ok'.lang(WebApp.language),
+						text: 'MODAL_DIALOG_OK_BTN'.lang(WebApp.language),
                         click: function() {
 							that.$el.dialog('destroy'); 
 							that.remove();
                             callback(true); 
                         }}, {
-						text: 'Cancel'.lang(WebApp.language),
+						text: 'MODAL_DIALOG_CANCEL_BTN'.lang(WebApp.language),
                         click: function() { 
                             $(this).dialog('close');
                             callback(false); 

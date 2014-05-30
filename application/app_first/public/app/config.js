@@ -14,7 +14,7 @@ require.config({
     // Paths that contain the various different javascript files.
     paths: {
         domReady:               WebApp.urls.libs + '/require/domReady',
-		protoutils:             WebApp.urls.libs + '/utility/protoutils-min',
+		protoutils:             WebApp.urls.libs + '/utility/protoutils',
         logger:		            WebApp.urls.libs + '/logger/logger-min',
 		jquery:                 WebApp.urls.libs + '/jquery/jquery-min',
         jqueryui:               WebApp.urls.libs + '/jquery/jquery-ui-min',     
@@ -28,7 +28,8 @@ require.config({
         shared_models:			WebApp.urls.app + '/models',
 		shared_views:			WebApp.urls.app + '/views',
 		shared_templates:		WebApp.urls.app + '/templates',
-		shared_utils:			WebApp.urls.app + '/utils'	
+		shared_utils:			WebApp.urls.app + '/utils' ,
+		shared_app:				WebApp.urls.app
     },
     
     /*
